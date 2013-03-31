@@ -70,7 +70,7 @@
                                 $docs = array();
                             }
                         }
-                        $this->setLastSyncDateTime( new \DateTime );
+                        $this->setLastSyncDateTime( $index->getName(), $type );
                     }
                 }
             }
@@ -145,8 +145,8 @@
             return $this->last_sync_handler? $this->last_sync_handler->getLastSync( $index, $doc_type ) : null;
         }
 
-        public function setLastSyncDateTime( \DateTime $last_sync ){
-            return $this->last_sync_handler? $this->last_sync_handler->setLastSync( $last_sync ) : null;
+        public function setLastSyncDateTime( $index='', $doc_type='' ){
+            return $this->last_sync_handler? $this->last_sync_handler->setLastSync( $index, $doc_type ) : null;
         }
 
         public function resetIndex( $index_name ) {

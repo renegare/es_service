@@ -12,5 +12,5 @@
 
         // LastSyncHandlerInterface stubs
         public function getLastSync( $index = null, $doc_type = null ) { }
-        public function setLastSync( \DateTime $last_sync, $index = null, $doc_type = null ) { }
+        public function setLastSync( $index = null, $doc_type = null ) { }
     }

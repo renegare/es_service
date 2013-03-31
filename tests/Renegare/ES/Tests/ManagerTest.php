@@ -112,7 +112,7 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
         Phake::verify( $data_source, Phake::times(1))->getData( $index, $doc_type, $last_sync );
         Phake::verify( $data_source, Phake::times(1))->getLastSync( $index, $doc_type );
         // needs more thought as the date time does not always match and fails
-        // Phake::verify( $data_source, Phake::times(1))->setLastSync( );
+        Phake::verify( $data_source, Phake::times(1))->setLastSync( $index, $doc_type );
 
         // make sure that all and only expected_data is in es
         // we are using Elastica Library here and not the ESManager ... #ethical
@@ -216,8 +216,6 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
         }
         // flag records to be deleted
         $keys = array_rand( $data, floor( count($data) / 2 ) );
-        print_r(floor( count($data) / 2 ));
-        print_r($keys);
         foreach( $keys as $key ) {
             $data[$key]['__deleted'] = true;
         }
