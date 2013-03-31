@@ -1,0 +1,31 @@
+{
+    "name": "renegare/es_service",
+    "description": "Simplified es manager/service class to get your PHP/Symfony Based server app using Elastic Search with minimum complications, but easily extendable to take on the bespoke",
+    "homepage": "https://github.com/renegare/es_service_php",
+    "keywords": ["php", "es", "elasticsearch", "console"],
+    "type": "library",
+    "authors": [
+        {
+            "name": "renegare",
+            "email": "mudi@renegare.com"
+        }
+    ],
+
+    "license": "MIT",
+    "minimum-stability": "dev",
+
+    "require": {
+        "ruflin/Elastica": "0.20.*",
+        "symfony/console": "v2.1.3"
+    },
+
+    "require-dev": {
+        "phake/phake": "v1.0.3"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Renegare\\ES": "src"
+        }
+    }
+}

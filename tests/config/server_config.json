@@ -1,0 +1,46 @@
+{
+    "servers" : [
+        { "host" : "127.0.0.1", "port" : "9200" }
+    ],
+
+    "indexes" : {
+        "test" : {
+            "options" : true,
+            "config" : {
+                "number_of_shards" : 4,
+                "number_of_replicas" : 1,
+                "analysis" : {
+                    "analyzer" : {
+                        "indexAnalyzer" : {
+                            "type" : "custom",
+                            "tokenizer" : "standard",
+                            "filter" : ["lowercase", "mySnowball"]
+                        },
+                        "searchAnalyzer" : {
+                            "type" : "custom",
+                            "tokenizer" : "standard",
+                            "filter" : ["standard", "lowercase", "mySnowball"]
+                        }
+                    },
+                    "filter" : {
+                        "mySnowball" : {
+                            "type" : "snowball",
+                            "language" : "English"
+                        }
+                    }
+                }
+            },
+
+            "mappings" : {
+                "test_type" : {
+                    "properties" : {
+                        "id"    : {"type" : "string", "include_in_all" : true},
+                        "title"  : {"type" : "string", "include_in_all" : true},
+                        "desc"  : {"type" : "string", "include_in_all" : true},
+                        "modified"  : {"type" : "date", "include_in_all" : true}
+                    }
+                }
+            }
+        }
+    }
+}
