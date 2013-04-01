@@ -4,7 +4,7 @@ namespace Renegare\ES\Tests\ElasticSearch;
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
-use Renegare\ES\Command as ElasticSearchCommand;
+use Renegare\ES\SyncCommand as ElasticSearchCommand;
 use Renegare\ES\Manager as ElasticSearchManager;
 use Phake;
 

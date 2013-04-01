@@ -91,7 +91,6 @@
                 if( !isset( $this->config['indexes'][$name] ) ) {
                     throw new \Exception( sprintf("Index %n configuration was not found", $name) );
                 }
-
                 $index = $this->getClient()->getIndex($name);
                 if ( !$index->exists() ) {
                     if( $create ) {
@@ -150,11 +149,18 @@
         }
 
         public function resetIndex( $index_name ) {
-            if( isset( $this->indexes[$index_name]) ) {
-                $this->indexes[$index_name]->delete();
+            // get it
+            $index = $this->getIndex( $index_name );
+
+            // delete it 
+            if( $index && $index->exists() ) {
+                $index->delete();
                 unset( $this->indexes[$index_name] );
             }
-            return $this->getIndex( $index_name, true );
+
+            // recreate it
+            $index = $this->getIndex( $index_name, true );
+            return $index;
         }
 
         public function __destruct() {
