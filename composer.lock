@@ -1,31 +1,42 @@
 {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
     "hash": "f3b163e354044e576ec5e8e22161d1de",
     "packages": [
         {
-            "name": "ruflin/Elastica",
-            "version": "v0.20.5.0.RC1",
+            "name": "ruflin/elastica",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "v0.20.5.0.RC1"
+                "reference": "b150b83107778a51f81f2bf610fff0c2cc6f459e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/v0.20.5.0.RC1",
-                "reference": "v0.20.5.0.RC1",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/b150b83107778a51f81f2bf610fff0c2cc6f459e",
+                "reference": "b150b83107778a51f81f2bf610fff0c2cc6f459e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "munkie/elasticsearch-thrift-php": "1.4.*",
-                "phpunit/phpunit": "3.7.*"
+                "psr/log": ">=1.0,<2.0"
             },
             "suggest": {
-                "munkie/elasticsearch-thrift-php": "Allow using thrift transport"
+                "monolog/monolog": "Logging request",
+                "munkie/elasticsearch-thrift-php": "Allow using thrift transport",
+                "psr/log": "for logging"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.20.5.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Elastica": "lib/",
@@ -48,7 +59,7 @@
                 "client",
                 "search"
             ],
-            "time": "2013-02-20 20:09:46"
+            "time": "2013-06-07 19:13:54"
         },
         {
             "name": "symfony/console",

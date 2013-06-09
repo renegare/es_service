@@ -25,7 +25,7 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
         $this->es_index = $this->es_client->getIndex( $this->es_test_index_name );
     }
 
-    public function stestFullSync()
+    public function testFullSync()
     {
         // delete and create index if it already exists
         // make index dirty with prepopulated stuff
@@ -140,6 +140,26 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals( 0, count( $expected_data ) );
 
+        // delete test index
+        $this->deleteEsIndex();
+    }
+
+    function testIndexMapping() {
+
+        $index = $this->manager->getIndex( 'test' );
+
+        $mappings = $index->getMapping();
+        $this->assertArrayHasKey( 'test', $mappings );
+        $this->assertArrayHasKey( 'test_type', $mappings['test'] );
+
+        $es_client = new Client( array( 'servers' => $this->es_config['servers'] ));
+        $es_index = $this->es_client->getIndex( $this->es_test_index_name );
+
+
+        $mappings = $es_index->getMapping();
+        $this->assertArrayHasKey( 'test', $mappings );
+        $this->assertArrayHasKey( 'test_type', $mappings['test'] );
+        
         // delete test index
         $this->deleteEsIndex();
     }

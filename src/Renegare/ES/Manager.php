@@ -86,18 +86,15 @@
             return $this->indexes;
         }
 
-        public function getIndex( $name, $create = false ) {
+        public function getIndex( $name ) {
             if( !isset($this->indexes[$name]) ) {
                 if( !isset( $this->config['indexes'][$name] ) ) {
                     throw new \Exception( sprintf("Index %n configuration was not found", $name) );
                 }
+
                 $index = $this->getClient()->getIndex($name);
                 if ( !$index->exists() ) {
-                    if( $create ) {
-                        $this->createIndex( $index, $this->config['indexes'][$name]);
-                    } else {
-                        return null;
-                    }
+                    $this->createIndex( $index, $this->config['indexes'][$name]);
                 }
 
                 $this->indexes[$name] = $index;
