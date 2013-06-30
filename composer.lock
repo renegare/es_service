@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f3b163e354044e576ec5e8e22161d1de",
+    "hash": "ffe668e49b269c07a37cb05da9dda130",
     "packages": [
         {
             "name": "ruflin/elastica",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "b150b83107778a51f81f2bf610fff0c2cc6f459e"
+                "reference": "13d4696446f4d3f8d341fa8a9eb8ff6484139376"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/b150b83107778a51f81f2bf610fff0c2cc6f459e",
-                "reference": "b150b83107778a51f81f2bf610fff0c2cc6f459e",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/13d4696446f4d3f8d341fa8a9eb8ff6484139376",
+                "reference": "13d4696446f4d3f8d341fa8a9eb8ff6484139376",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "client",
                 "search"
             ],
-            "time": "2013-06-07 19:13:54"
+            "time": "2013-06-29 15:15:46"
         },
         {
             "name": "symfony/console",
