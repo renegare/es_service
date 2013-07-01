@@ -60,7 +60,7 @@
                             }
 
                             // when we reach the batch size we push and clean up memory #fingersCrossed
-                            if( !($count % $batch_size) || $count === $data_count ) {
+                            if( ( !($count % $batch_size) || $count === $data_count ) && count( $docs ) > 0 ) {
                                 try {
                                     $type_obj->addDocuments( $docs );
                                     $index->refresh();
