@@ -43,7 +43,7 @@
                         // lets do this!
                         $type_obj = $index->getType( $name );
                         // we have a single data source, pass in the index, type of data we want, last sync DateTime Object and keep it simple :)
-                        $data = $this->data_source->getData( $index->getName(), $type, $sync_type === Manager::SYNC_DELTA? $this->getLastSyncDateTime( $index->getName(), $type ) : null );
+                        $data = $this->data_source->getData( $index->getName(), $type? $type : $name, $sync_type === Manager::SYNC_DELTA? $this->getLastSyncDateTime( $index->getName(), $type ) : null );
 
                         $docs = array();
                         $data_count = count( $data );
